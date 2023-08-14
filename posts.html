@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Posts"
-permalink: /posts/
+permalink: /posts
 ---
 
 <div class="container">
@@ -27,7 +27,7 @@ permalink: /posts/
   <!-- Posts -->
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for post in site.posts %}
-    <div class="col post-item" id="{{ post.tags }}">
+    <div class="col post-item {{ post.tags | join: ' ' }}">
       <div class="card h-100 select-hover">
         <img src="{{ post.card-image }}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -46,16 +46,15 @@ permalink: /posts/
 
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  // Filter posts by tag
-  var url = window.location.href;
-  var tag = url.split('#')[1];
-  if (tag) {
-    var cards = document.getElementsByClassName('post-item');
-    for (var i = 0; i < cards.length; i++) {
-      if (cards[i].id != tag) {
-        cards[i].style.display = 'none';
-      }
-    }
-  }
+  $(document).ready(function () {
+    // Filter posts by tag
+    $(".dropdown-item").click(function () {
+      var tag = $(this).attr("href").split("#")[1];
+      $(".post-item").hide();
+      console.log(tag);
+      $("." + tag).show();
+    });
+  });
 </script>
