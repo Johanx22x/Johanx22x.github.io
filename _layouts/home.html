@@ -1,6 +1,12 @@
 {% include header.html %}
 {% include navbar.html %}
 <div class="container mt-4">
-    {{ content }}
+    {% include about.html %}
+
+    <h1 class="mb-3 mt-3">Skills</h1>
+    {% include skills.html %}
+
+    <h1 class="mb-3 mt-3">Projects</h1>
+    {% include projects.html %}
 </div>
 {% include footer.html %}

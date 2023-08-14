@@ -5,7 +5,3 @@
 layout: home
 title: Home
 ---
-
-# Welcome to my website!
-
-Currently in development...
