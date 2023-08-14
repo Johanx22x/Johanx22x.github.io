@@ -18,7 +18,7 @@ permalink: /posts/
         <ul class="dropdown-menu" aria-labelledby="tagFilter">
           <li><a class="dropdown-item" href="/posts">All</a></li>
           {% for tag in site.tags %}
-          <li><a class="dropdown-item" href="/posts#{{ tag[0] }}">{{ tag[0] }}</a></li>
+          <li><a class="dropdown-item" href="/posts/#{{ tag[0] }}">{{ tag[0] }}</a></li>
           {% endfor %}
         </ul>
       </div>
