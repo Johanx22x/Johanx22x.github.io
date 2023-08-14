@@ -14,4 +14,21 @@
     </div>
     </div>
 </div>
+
+<script>
+    // Create a copy button for code blocks
+    // Using class code-block
+    var codeBlocks = document.getElementsByClassName('code-block');
+    for (var i = 0; i < codeBlocks.length; i++) {
+        var copyBtn = document.createElement('button');
+        copyBtn.className = 'btn btn-sm btn-outline-secondary float-end';
+        copyBtn.innerHTML = 'Copy';
+        copyBtn.addEventListener('click', function() {
+            var code = this.parentElement.getElementsByTagName('code')[0];
+            navigator.clipboard.writeText(code.innerText);
+        });
+        codeBlocks[i].appendChild(copyBtn);
+    }
+</script>
+
 {% include footer.html %}
