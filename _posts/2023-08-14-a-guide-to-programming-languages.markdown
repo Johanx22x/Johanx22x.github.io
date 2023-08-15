@@ -5,7 +5,7 @@ permalink: /posts/programming-languages-guide
 description: A guide about Programming Languages, recommended for beginners.
 card-image: /assets/img/programming-languages-guide.png
 date:   2023-08-14
-tags: [Software, Coding]
+tags: [Software, Programming]
 ---
 
 <img src="/assets/img/programming-languages-guide.png" class="post-img-header"/>
