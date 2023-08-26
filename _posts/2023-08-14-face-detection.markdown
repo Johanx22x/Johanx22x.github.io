@@ -37,7 +37,7 @@ Before continuing verify to have installed the next libraries using
 Let's define our first code lines. In your working directory create a new 
 file called `main.py`, here we'll define some basic functions.
 
-<div class="code-block">
+<div class="code-block copy-button">
     <code>
 {% highlight py %}
 
@@ -76,7 +76,7 @@ convert the image color before pass it to the model. Let's create a function to
 get the prediction of the model for further use. We also need to add some lines
 to main function.
 
-<div class="code-block">
+<div class="code-block copy-button">
     <code>
 {% highlight py %}
 
@@ -116,7 +116,7 @@ of face detection it is a list with face detection coordinates. The next task is
 interpret this data, as part of analyze I'll also include a function to add a
 rectangle in each face.
 
-<div class="code-block">
+<div class="code-block copy-button">
     <code>
 {% highlight py %}
 
@@ -197,7 +197,7 @@ detection model I recommend you to read about [RetinaFace](https://arxiv.org/pdf
 
 Here is the complete code of our face detection code, in case of needed.
 
-<div class="code-block">
+<div class="code-block copy-button">
     <code>
 {% highlight py %}
 
