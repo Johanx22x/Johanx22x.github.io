@@ -3,7 +3,7 @@ layout: default
 title:  "My PC"
 permalink: /posts/pc
 description: My PC specifications and a little more...
-card-image: /assets/img/my-pc.png
+card-image: /assets/img/my-pc.jpg
 date:   2023-08-13
 tags: [Hardware]
 ---
@@ -25,3 +25,5 @@ In this post is specified my PC specifications.
 # Result
 
 <img src="/assets/img/my-pc.png" class="post-img" />
+
+<img src="/assets/img/my-pc.jpg" class="post-img" />
