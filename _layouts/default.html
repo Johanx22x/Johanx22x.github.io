@@ -1,6 +1,6 @@
 {% include header.html %}
 {% include navbar.html %}
-<div class="container mt-4">
+<div class="container mt-4 h-100">
     <div class="row">
     <div class="col-md-4">
         <div class="bg-light p-3">
@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="col-md-8">
-        <div class="bg-light p-3">
+        <div class="bg-light p-3 overflow-auto" style="height: 85vh;">
             {{ content }}
         </div>
     </div>
