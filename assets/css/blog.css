@@ -86,16 +86,15 @@ input#search-bar{
 }
 
 .blog-posts {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
     margin-top: 2em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40em, 2fr));
 }
 
 .blog-post-item {
     display: none;
+    margin: 1em;
 }
 
 .blog-post-item.active {
@@ -104,7 +103,6 @@ input#search-bar{
 
 .blog-post {
     padding: 1em;
-    margin: 1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: 0.35s ease;
     color: var(--primary-color);
@@ -135,7 +133,7 @@ input#search-bar{
     font-size: 1.5rem;
     font-weight: 600;
     text-decoration: none;
-    width: 20em;
+    width: inherit;
 }
 
 .blog-post-date {
@@ -146,6 +144,6 @@ input#search-bar{
     margin-top: 1em;
     font-size: 1rem;
     line-height: 1.5;
-    width: 30em;
+    width: inherit;
     height: 100%
 }
