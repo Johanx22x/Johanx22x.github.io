@@ -1,23 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="/">
-            <img src="https://avatars.githubusercontent.com/u/101372687" alt="Johanx22x" width="40" height="40" class="d-inline-block align-text-top" style="border-radius: 50%;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/posts">Posts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
-            </ul>
+<nav>
+    <ul>
+        <li> <a href="/"> <img src="/assets/img/logo.jpg" alt="logo" id="logo"></img> </a> </li>
+
+        <div id="container-nav-items">
+            <li> <a class="nav-item" href="/" id="home">Home</a> </li>
+            <li> <a class="nav-item" href="/blog/" id="blog">Blog</a></li>
+            <li> <a class="nav-item" href="/about/" id="about">About</a> </li>
         </div>
-    </div>
+
+        <li>
+            <div id="container-theme-toggle">
+                <div class="inner-container-theme-toggle">
+                    <div class="toggle-theme">
+                        <p>Dark</p>
+                    </div>
+                    <div class="toggle-theme">
+                        <p>Light</p>
+                    </div>
+                </div>
+                <div class="inner-container-theme-toggle" id='toggle-container-theme-toggle'>
+                    <div class="toggle-theme">
+                        <p>Dark</p>
+                    </div>
+                    <div class="toggle-theme">
+                        <p>Light</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
 </nav>

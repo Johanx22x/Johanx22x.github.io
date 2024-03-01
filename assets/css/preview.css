@@ -1,0 +1,158 @@
+.preview {
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.preview-icons {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.preview-icon {
+    width: 7em;
+    padding: 1em;
+    text-align: center;
+    margin: 0 4em;
+}
+
+.preview-icon svg {
+    width: 3em;
+    height: 3em;
+    stroke: var(--primary-color);
+    fill: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.preview-icon p {
+    margin-top: 0.5em;
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.preview-icon:hover {
+    background-color: var(--hover-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.preview-icon.active {
+    background-color: var(--hover-color);
+    border-radius: 5px;
+
+    svg {
+        filter: invert(1);
+    }
+}
+
+.preview-icon.active p {
+    color: var(--invert-color);
+}
+
+.preview-icon.active:hover {
+    background-color: var(--hover-color);
+}
+
+.preview-icon:active {
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+.preview-icon.active:active {
+    background-color: var(--accent-color);
+}
+
+.preview-content {
+    width: 100%;
+    height: 100%;
+    margin: 2em 0;
+    padding: 0 10%;
+    justify-content: center;
+    list-style: none;
+}
+
+.preview-content li {
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.preview-item {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+.preview-item li {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.preview-item.active {
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    align-items: stretch;
+}
+
+.preview-item.active li {
+    margin: 0 2em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.preview-card {
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    border-radius: 5px;
+    background-color: var(--bg-color);
+}
+
+.preview-card h3 {
+    margin: 0.5em 0;
+    font-size: 2em;
+    color: var(--primary-color);
+}
+
+.preview-card p {
+    margin-bottom: 1em;
+    font-size: 1em;
+    color: var(--primary-color);
+}
+
+.preview-img {
+    width: 100%;
+    height: 20em;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.preview-button {
+    bottom: 0;
+    width: 8em;
+    height: 2.7em;
+    padding: 0.5em;
+    margin-top: auto;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--hover-color);
+    color: var(--invert-color);
+    text-decoration: none;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.preview-button:hover {
+    background-color: var(--accent-color);
+}

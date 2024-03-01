@@ -1,21 +1,15 @@
 ---
-layout: default
+layout: post
 title:  "Neovim Config"
-permalink: /posts/nvim
-description: My Neovim custom configuration.
-card-image: /assets/img/nvim-project.png
+description: "This post contains my basic information about my configuration for the Neovim text editor. Feel free to use it as a starting point for your own configuration, or just pick and choose the settings you like."
 date:   2023-08-14
-tags: [Software]
+category: lectures
+permalink: /blog/nvim-config
+image: "/assets/img/nvim-project.jpg"
 ---
 
-<img src="/assets/img/nvim.png" class="post-img"/>
-
-<p class="text-center">
-    <h1 class="text-center">My Neovim Configuration</h1>
-</p>
-
 This post contains my basic information about my configuration for the Neovim
-text editor.  Feel free to use it as a starting point for your own
+text editor. Feel free to use it as a starting point for your own
 configuration, or just pick and choose the settings you like.
 
 For more information or contributing you can refer to my repository:
@@ -29,11 +23,11 @@ For more information or contributing you can refer to my repository:
 
 - Clone this repository into your `~/.config/` directory:
 
-<div class="code-block copy-button">
-    <code>
-        git clone https://github.com/Johanx22x/nvim.git
+<pre>
+    <code class="language-html border">
+git clone https://github.com/Johanx22x/nvim.git
     </code>
-</div>
+</pre>
 
 - Start Neovim and run :PackerInstall command to install any 
 plugins specified in the configuration file.
@@ -62,3 +56,4 @@ transparency, among others.
 - `plugins/setup.lua`: Load specific settings for each plugin.
 
 - `plugins/<plugin-name>.lua`: Plugin configuration.
+

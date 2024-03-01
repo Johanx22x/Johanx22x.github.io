@@ -1,0 +1,30 @@
+<div class="blog-container">
+    <div class="blog-utils">
+        <form class="search-container">
+            <input type="text" id="search-bar" placeholder="Looking for something specific?">
+        </form>
+        <div class="blog-filter">
+            <ul class="blog-filter-list">
+                <li id="all-btn" class="blog-filter-item active"><a onclick="filterSelection('all')">All</a></li>
+                <li id="projects-btn" class="blog-filter-item"><a onclick="filterSelection('projects')">Projects</a></li>
+                <li id="lectures-btn" class="blog-filter-item"><a onclick="filterSelection('lectures')">Lectures</a></li>
+                <li id="hobbies-btn" class="blog-filter-item"><a onclick="filterSelection('hobbies')">Hobbies</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="blog-posts">
+        {% for post in site.posts %}
+        <a href="{{ post.permalink | prepend: site.baseurl }}" class="no-underline blog-post-item {{ post.category }} active">
+            <div class="blog-post">
+                <img class="blog-post-image" src="{{ post.image }}">
+                <h1 class="blog-post-title">{{ post.title }}</h1>
+                <h5 class="blog-post-date">{{ post.date | date: "%B %d, %Y" }}</h5>
+                <p class="blog-post-description">{{ post.description }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="/assets/js/blog.js"></script>

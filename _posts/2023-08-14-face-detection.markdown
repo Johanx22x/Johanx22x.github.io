@@ -1,18 +1,12 @@
 ---
-layout: default
-title:  "Face Detection"
-permalink: /posts/face-dection-using-mediapipe
-description: Step-by-step guide for face detection using Python with Mediapipe.
-card-image: /assets/img/face-detection.png
-date:   2023-08-15
-tags: [Software, Programming, Computer Vision]
+layout: post
+title:  "Face Detection using Python and Mediapipe"
+description: "Face Detection is one of the most important fields in computer vision, it's the first step for further face analysis and data manipulation. Through this post I will explain how to detect a face into an image using Python and Mediapipe, a computer vision library for Python. "
+date:   2023-08-14
+category: projects
+permalink: /blog/face-detection
+image: "/assets/img/face-detection.png"
 ---
-
-<img src="/assets/img/face-detection.png" class="post-img-header"/>
-
-<p class="text-center">
-    <h1 class="text-center">Face Detection using Python and Mediapipe</h1>
-</p>
 
 Face Detection is one of the most important fields in computer vision, it's 
 the first step for further face analysis and data manipulation. Through this 
@@ -37,10 +31,8 @@ Before continuing verify to have installed the next libraries using
 Let's define our first code lines. In your working directory create a new 
 file called `main.py`, here we'll define some basic functions.
 
-<div class="code-block copy-button">
-    <code>
-{% highlight py %}
-
+<pre>
+    <code class="language-python border">
 import cv2
 import numpy as np
 
@@ -64,10 +56,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-{% endhighlight %}
     </code>
-</div>
+</pre>
 
 ## Preprocess
 
@@ -76,10 +66,8 @@ convert the image color before pass it to the model. Let's create a function to
 get the prediction of the model for further use. We also need to add some lines
 to main function.
 
-<div class="code-block copy-button">
-    <code>
-{% highlight py %}
-
+<pre>
+    <code class="language-python border">
 import mediapipe as np # Add this line next to previous imports
 
 def get_prediction(img: np.ndarray, model: mp.solutions.face_detection.FaceDetection) -> list:
@@ -105,9 +93,8 @@ def main() -> None:
         prediction = get_prediction(img, face_detection)
         print(prediction) # This line will print the predictions from the model
 
-{% endhighlight %}
     </code>
-</div>
+</pre>
 
 ## Analyze
 
@@ -116,10 +103,8 @@ of face detection it is a list with face detection coordinates. The next task is
 interpret this data, as part of analyze I'll also include a function to add a
 rectangle in each face.
 
-<div class="code-block copy-button">
-    <code>
-{% highlight py %}
-
+<pre>
+    <code class="language-python border">
 def draw_prediction(img: np.ndarray, coordinates: list) -> np.ndarray:
     """Draw prediction on the image
     Args:
@@ -168,10 +153,8 @@ def main() -> None:
     # ... Our previous code
 
     show_img(draw_prediction(img, prediction)) # Show image with prediction drawn
-
-{% endhighlight %}
     </code>
-</div>
+</pre>
 
 Don't feel scared about the size of `draw_prediction()` function, the complexity 
 of this function is not elevated, just take your time to read the code and comments 
@@ -197,10 +180,8 @@ detection model I recommend you to read about [RetinaFace](https://arxiv.org/pdf
 
 Here is the complete code of our face detection code, in case of needed.
 
-<div class="code-block copy-button">
-    <code>
-{% highlight py %}
-
+<pre>
+    <code class="language-python border">
 import cv2
 import numpy as np
 import mediapipe as mp
@@ -286,7 +267,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-{% endhighlight %}
     </code>
-</div>
+</pre>

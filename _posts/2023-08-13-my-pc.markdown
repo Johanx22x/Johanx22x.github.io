@@ -1,14 +1,12 @@
 ---
-layout: default
+layout: post
 title:  "My PC"
-permalink: /posts/pc
-description: My PC specifications and a little more...
-card-image: /assets/img/my-pc.jpg
+description: "In this post is specified my PC components and characteristics"
 date:   2023-08-13
-tags: [Hardware]
+category: projects
+permalink: /blog/my-pc
+image: "/assets/img/pc-project.jpg"
 ---
-
-# My PC
 
 In this post is specified my PC specifications.
 
@@ -25,5 +23,3 @@ In this post is specified my PC specifications.
 # Result
 
 <img src="/assets/img/my-pc.png" class="post-img" />
-
-<img src="/assets/img/my-pc.jpg" class="post-img" />
