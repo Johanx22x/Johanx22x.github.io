@@ -90,6 +90,11 @@ input#search-bar{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(40em, 2fr));
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    height: 100%;
 }
 
 .blog-post-item {
@@ -145,5 +150,4 @@ input#search-bar{
     font-size: 1rem;
     line-height: 1.5;
     width: inherit;
-    height: 100%
 }
