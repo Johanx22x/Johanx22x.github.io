@@ -1,7 +1,7 @@
 .slideshow {
     position: relative;
     width: 100%;
-    height: 40em;
+    height: 30em;
     overflow: hidden;
     box-shadow: 0 1px 8px rgba(0,0,0,0.3);
 }
@@ -27,21 +27,22 @@
     font-size: 2em;
     font-weight: bold;
     max-width: 20em;
+    margin-top: 0.5em;
 }
 
 .slideshow-text h1 {
-    font-weight: 700;
+    font-weight: 1000;
     font-style: normal;
-    font-family: "Madimi One", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .slideshow-btn {
     position: absolute;
-    margin-top: 1em;
+    margin-top: 0.5em;
     background-color: rgba(0,0,0,0.7);
     border-radius: 0.5em;
     padding: 0.2em 0.4em;
-    font-size: 1.2em;
+    font-size: 1em;
     text-decoration: none;
     text-shadow: none;
     color: #fff;

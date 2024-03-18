@@ -1,5 +1,3 @@
-@import "sun-and-moon.css";
-
 .theme-toggle {
   --size: 2rem;
   --icon-fill: hsl(210 10% 30%);
@@ -19,11 +17,6 @@
   -webkit-tap-highlight-color: transparent;
 
   outline-offset: 5px;
-
-  & > svg {
-    inline-size: 100%;
-    block-size: 100%;
-    stroke-linecap: round;
   }
 
   @nest [data-theme="dark"] & {

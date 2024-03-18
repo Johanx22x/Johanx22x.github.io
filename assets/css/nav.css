@@ -67,7 +67,8 @@ nav ul li a{
     display: inline-block;
     cursor: pointer;
     padding: 0 10px 0 10px;
-    font-family: "Kdam Thmor Pro", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 1000;
 }
 
 .theme-toggle{
@@ -104,7 +105,7 @@ nav ul li:hover #about{
 	top: 0;
 	width: inherit;
 	height: inherit;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-size: 1em;
 	letter-spacing: .2em;
 }
