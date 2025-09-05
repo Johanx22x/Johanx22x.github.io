@@ -91,7 +91,7 @@ export default function App() {
                 <img src="/avatar.png" alt="Avatar" className="h-8 w-8 rounded-xl object-cover" />
             </div>
             <div>
-              <h1 className="text-lg font-semibold tracking-tight">{PROFILE.name}</h1>
+              <h1 className="text-lg font-semibold tracking-tight">@johanx22x</h1>
               <p className="text-xs/5 text-slate-600 dark:text-slate-400">{PROFILE.role}</p>
             </div>
           </div>
