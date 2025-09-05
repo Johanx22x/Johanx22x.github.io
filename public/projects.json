@@ -16,5 +16,12 @@
     "summary": "Retrieval-augmented assistant for corporate FAQs with vector index, clarifying prompts, and safe citations.",
     "tech": ["n8n", "RAG", "TypeScript", "OpenAI"],
     "url": "https://github.com/Johanx22x/faq-agent"
+  },
+  {
+    "title": "Network Zonal Cache (C)",
+    "summary": "HTTP microservice for zonal caching with libmicrohttpd, OpenSSL, libcurl, and Jansson; rich logging and clean C arch.",
+    "tech": ["C", "libmicrohttpd", "OpenSSL", "Jansson"],
+    "url": "https://github.com/Johanx22x/zonal-cache"
   }
 ]
+

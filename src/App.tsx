@@ -1,26 +1,15 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
-  Github, Linkedin, Mail, PlayCircle, Film, Gamepad2, BookOpen, Link,
+  Github, Linkedin, Mail, PlayCircle, Film, Gamepad2, BookOpen, Link as LinkIcon,
   ExternalLink, Code2, Briefcase, Sparkles, GraduationCap, Cpu,
-  ChevronLeft, ChevronRight
 } from "lucide-react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import type { EmblaCarouselType } from "embla-carousel";
-
-/**
- * Ultra-smooth portfolio
- * - Background: CSS-only orbs (theme-aware)
- * - Carousel: Embla (autoplay + arrows + dots); layout compacto (2–3 visibles)
- * - Theme: persistido en localStorage + aplicado temprano (ver index.html)
- */
 
 const PROFILE = {
   name: "Johan Rodríguez",
-  role: "Computer Engineering Student & Software Developer",
+  role: "Computer Engineering Student",
   tagline: "Exploring technology, learning, and creativity — always building and discovering.",
   email: "johanrodsa2210@gmail.com",
-  resumeUrl: "/Johan-CV.pdf", // ajusta el path si cambia
+  resumeUrl: "/Johan-CV.pdf",
 };
 
 export type LinkGroup = "work" | "hobby" | "social";
@@ -43,10 +32,10 @@ const LINKS: LinkItem[] = [
   { label: "Hardcover", href: "https://hardcover.app/your-handle", group: "hobby", icon: BookOpen },
 
   { label: "YouTube", href: "https://www.youtube.com/@your-channel", group: "social", icon: PlayCircle },
-  { label: "Discord", href: "https://discord.com/users/your-id", group: "social", icon: Link },
+  { label: "Discord", href: "https://discord.com/users/your-id", group: "social", icon: LinkIcon },
 ];
 
-export type Project = { title: string; summary: string; tech: string[]; url?: string; };
+export type Project = { title: string; summary: string; tech: string[]; url?: string };
 
 const cx = (...a: Array<string | false | null | undefined>) => a.filter(Boolean).join(" ");
 
@@ -88,6 +77,7 @@ export default function App() {
   useEffect(() => {
     fetch("/projects.json").then(r => r.json()).then(setProjects).catch(() => setProjects([]));
   }, []);
+  const featured = projects.slice(0, 4);
 
   return (
     <div className="relative min-h-screen text-slate-800 antialiased dark:text-slate-100">
@@ -98,7 +88,7 @@ export default function App() {
         <header className="mb-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="grid h-10 w-10 place-items-center rounded-2xl bg-white/70 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-transform hover:scale-[1.02] active:scale-[0.98] dark:bg-slate-900/60 dark:ring-white/10">
-              <Cpu className="h-5 w-5" />
+                <img src="/avatar.png" alt="Avatar" className="h-8 w-8 rounded-xl object-cover" />
             </div>
             <div>
               <h1 className="text-lg font-semibold tracking-tight">{PROFILE.name}</h1>
@@ -159,26 +149,56 @@ export default function App() {
           </div>
         </section>
 
-        {/* Grid */}
+        {/* Grid principal */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {/* Projects: 2/3, carousel compacto (2–3 visibles, sin espacio muerto) */}
+          {/* Featured Projects — 2/3 */}
           <GlassCard className="lg:col-span-2" icon={Briefcase} title="Featured Projects">
-            <ProjectsEmbla projects={projects} />
+            {featured.length ? (
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {featured.map((p) => (
+                  <a
+                    key={p.title}
+                    href={p.url}
+                    className="rounded-2xl border border-white/20 bg-white/75 p-5 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40 active:translate-y-0 dark:border-white/10 dark:bg-slate-900/60 dark:ring-white/10"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="text-base font-semibold tracking-tight">{p.title}</h3>
+                      <Code2 className="h-4 w-4 shrink-0 opacity-60" />
+                    </div>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{p.summary}</p>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {p.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full border border-white/20 bg-white/60 px-2 py-0.5 text-[10px] font-medium shadow-sm dark:border-white/10 dark:bg-slate-900/60"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-slate-500">
+                Add a <code>projects.json</code> file in <code>/public</code>.
+              </p>
+            )}
           </GlassCard>
 
-          {/* Right column: Experience + Education */}
+          {/* Right column — Experience + Education */}
           <div className="space-y-6">
             <GlassCard icon={Sparkles} title="Experience">
               <ul className="space-y-3 text-sm">
                 <li>
-                  <h4 className="font-medium">Computer Vision Researcher — Instituto Tecnológico de Costa Rica</h4>
+                  <h4 className="font-medium">Computer Vision Researcher</h4>
                   <ul className="ml-4 list-disc text-slate-600 dark:text-slate-400">
                     <li>Developed image-processing pipelines with AI/ML to support visual analysis.</li>
                     <li>Optimized model performance in a multidisciplinary research setting.</li>
                   </ul>
                 </li>
                 <li>
-                  <h4 className="font-medium">Mathematics Tutor — Colegio Científico Costarricense</h4>
+                  <h4 className="font-medium">Mathematics Tutor</h4>
                   <ul className="ml-4 list-disc text-slate-600 dark:text-slate-400">
                     <li>Delivered precalculus and problem-solving mentoring through tailored guidance.</li>
                     <li>Strengthened communication and instruction while supporting student outcomes.</li>
@@ -199,7 +219,7 @@ export default function App() {
         </div>
 
         {/* Link Hub */}
-        <GlassCard className="mt-6" icon={Link} title="Link Hub">
+        <GlassCard className="mt-6" icon={LinkIcon} title="Link Hub">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {filteredLinks.map((item) => (
               <LinkButton key={item.label} item={item} />
@@ -215,7 +235,7 @@ export default function App() {
   );
 }
 
-/* ------- UI blocks ------- */
+/* ---- UI blocks ---- */
 function GlassCard({
   title, icon: Icon, className, children,
 }: { title: string; icon?: React.ComponentType<{ className?: string }>; className?: string; children: React.ReactNode; }) {
@@ -267,21 +287,21 @@ function LinkButton({ item }: { item: LinkItem }) {
   );
 }
 
-/** Theme-aware background (light ↔ dark) con 2 orbes (muy fluido) */
+/** Theme-aware background (light ↔ dark) — 2 orbs, transform/opacity only */
 function BackgroundAesthetic() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
-      {/* base gradient cambia con el tema */}
+      {/* base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-white to-sky-50 dark:from-[#0a0f1a] dark:via-[#0b1320] dark:to-[#0a0f1a]" />
-      {/* orbes — colores distintos para cada tema */}
+      {/* orbs */}
       <div
-        className="absolute h-[70vmin] w-[70vmin] rounded-full animate-orbA transform-gpu will-change-transform
+        className="absolute h-[70vmin] w-[70vmin] rounded-full animate-[orbA_16s_ease-in-out_infinite] transform-gpu will-change-transform
                    from-rose-300/40 to-white/40 bg-gradient-to-tr
                    dark:from-white/12 dark:to-[#ff7ab218]"
         style={{ left: "-8%", top: "-12%" }}
       />
       <div
-        className="absolute h-[70vmin] w-[70vmin] rounded-full animate-orbB transform-gpu will-change-transform
+        className="absolute h-[70vmin] w-[70vmin] rounded-full animate-[orbB_18s_ease-in-out_infinite] transform-gpu will-change-transform
                    from-sky-300/40 to-white/30 bg-gradient-to-tr
                    dark:from-white/10 dark:to-[#7ab8ff18]"
         style={{ right: "-12%", bottom: "-14%" }}
@@ -290,91 +310,3 @@ function BackgroundAesthetic() {
   );
 }
 
-/* ------- Projects carousel (Embla) ------- */
-function ProjectsEmbla({ projects }: { projects: Project[] }) {
-  const autoplay = useRef(Autoplay({ delay: 4200, stopOnInteraction: false }));
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "start", slidesToScroll: 1 },
-    [autoplay.current]
-  );
-  const [selected, setSelected] = useState(0);
-
-  const onSelect = useCallback((embla?: EmblaCarouselType) => {
-    if (!embla) return;
-    setSelected(embla.selectedScrollSnap());
-  }, []);
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect(emblaApi);
-    emblaApi.on("select", onSelect);
-  }, [emblaApi, onSelect]);
-
-  if (!projects.length) {
-    return <p className="text-sm text-slate-500">Add a <code>projects.json</code> file in <code>/public</code>.</p>;
-  }
-
-  const scrollPrev = () => emblaApi?.scrollPrev();
-  const scrollNext = () => emblaApi?.scrollNext();
-
-  return (
-    <div className="relative">
-      <div className="embla__viewport overflow-hidden" ref={emblaRef}>
-        {/* Track — cada slide ocupa ~40–60%, así vemos 2–3 a la vez */}
-        <div className="flex gap-4">
-          {projects.map((p, i) => (
-            <a
-              key={p.title + i}
-              href={p.url}
-              className="min-w-0 shrink-0 basis-[85%] sm:basis-[60%] lg:basis-[48%] xl:basis-[40%]
-                         rounded-2xl border border-white/20 bg-white/75 p-5 shadow-sm ring-1 ring-black/5 backdrop-blur-md
-                         transition hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40 active:translate-y-0
-                         dark:border-white/10 dark:bg-slate-900/60 dark:ring-white/10"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="text-base font-semibold tracking-tight">{p.title}</h3>
-                <Code2 className="h-4 w-4 shrink-0 opacity-60" />
-              </div>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{p.summary}</p>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {p.tech.map((t) => (
-                  <span key={t} className="rounded-full border border-white/20 bg-white/60 px-2 py-0.5 text-[10px] font-medium shadow-sm dark:border-white/10 dark:bg-slate-900/60">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* arrows */}
-      <button
-        onClick={scrollPrev}
-        className="group absolute left-2 top-1/2 z-20 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-xl border border-white/20 bg-white/70 shadow-sm transition hover:-translate-y-[55%] hover:bg-white/90 hover:shadow-md active:translate-y-[-45%] focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40 dark:border-white/10 dark:bg-slate-900/60"
-        aria-label="Previous"
-      >
-        <ChevronLeft className="h-4 w-4" />
-      </button>
-      <button
-        onClick={scrollNext}
-        className="group absolute right-2 top-1/2 z-20 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-xl border border-white/20 bg-white/70 shadow-sm transition hover:-translate-y-[55%] hover:bg-white/90 hover:shadow-md active:translate-y-[-45%] focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40 dark:border-white/10 dark:bg-slate-900/60"
-        aria-label="Next"
-      >
-        <ChevronRight className="h-4 w-4" />
-      </button>
-
-      {/* dots compactos */}
-      <div className="mt-3 flex justify-center gap-2">
-        {projects.map((_, i) => (
-          <div
-            key={i}
-            className={cx(
-              "h-1.5 w-6 rounded-full transition",
-              i === selected ? "bg-slate-900/70 dark:bg-white/70" : "bg-slate-900/20 dark:bg-white/20"
-            )}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
