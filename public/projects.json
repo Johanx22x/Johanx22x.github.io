@@ -1,0 +1,20 @@
+[
+  {
+    "title": "DNS Interceptor (C)",
+    "summary": "Low-level DNS packet interception & routing with Dockerized toolchain and clean C architecture.",
+    "tech": ["C", "libcurl", "Docker", "OpenSSL"],
+    "url": "https://github.com/Johanx22x/dns-interceptor"
+  },
+  {
+    "title": "JLPT Study SRS (React + Firebase)",
+    "summary": "Spaced-repetition study app for Japanese learning with custom deck rules, Firestore security, and Cloud Functions.",
+    "tech": ["React", "TypeScript", "Firebase", "Tailwind"],
+    "url": "https://github.com/Johanx22x/jlpt-srs"
+  },
+  {
+    "title": "GenAI FAQ Agent (n8n + RAG)",
+    "summary": "Retrieval-augmented assistant for corporate FAQs with vector index, clarifying prompts, and safe citations.",
+    "tech": ["n8n", "RAG", "TypeScript", "OpenAI"],
+    "url": "https://github.com/Johanx22x/faq-agent"
+  }
+]

@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ===== Smooth background (GPU: transform/opacity only) ===== */
+@keyframes orbA {
+  0%,100% { transform: translate3d(0,0,0) scale(1); opacity:.55; }
+  50%     { transform: translate3d(22px,-14px,0) scale(1.05); opacity:.70; }
+}
+@keyframes orbB {
+  0%,100% { transform: translate3d(0,0,0) scale(1); opacity:.45; }
+  50%     { transform: translate3d(-18px,14px,0) scale(1.04); opacity:.60; }
+}
+.animate-orbA { animation: orbA 16s ease-in-out infinite; will-change: transform, opacity; }
+.animate-orbB { animation: orbB 18s ease-in-out infinite; will-change: transform, opacity; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbA, .animate-orbB { animation: none !important; }
+}
+
+/* Embla scrollbars ocultas */
+.embla__viewport::-webkit-scrollbar{ display:none; }
+.embla__viewport{ scrollbar-width:none; }
