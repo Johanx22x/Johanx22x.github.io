@@ -1,27 +1,26 @@
 [
   {
-    "title": "DNS Interceptor (C)",
-    "summary": "Low-level DNS packet interception & routing with Dockerized toolchain and clean C architecture.",
-    "tech": ["C", "libcurl", "Docker", "OpenSSL"],
-    "url": "https://github.com/Johanx22x/dns-interceptor"
+    "title": "Benchmark: Face Detection Using Deep Learning Models and Frameworks",
+    "summary": "A comprehensive benchmark of deep learning models and frameworks for face detection tasks.",
+    "tech": ["Python", "Deep Learning", "Computer Vision"],
+    "url": "https://doi.org/10.1007/978-3-031-93103-1_11"
   },
   {
-    "title": "JLPT Study SRS (React + Firebase)",
-    "summary": "Spaced-repetition study app for Japanese learning with custom deck rules, Firestore security, and Cloud Functions.",
-    "tech": ["React", "TypeScript", "Firebase", "Tailwind"],
-    "url": "https://github.com/Johanx22x/jlpt-srs"
+    "title": "Genetic AI Snake Game",
+    "summary": "A Snake game where the snake is controlled by a neural network trained using a genetic algorithm.",
+    "tech": ["Python", "Pygame", "Neural Networks", "Genetic Algorithms"],
+    "url": "https://github.com/Johanx22x/snake-ai"
   },
   {
-    "title": "GenAI FAQ Agent (n8n + RAG)",
-    "summary": "Retrieval-augmented assistant for corporate FAQs with vector index, clarifying prompts, and safe citations.",
-    "tech": ["n8n", "RAG", "TypeScript", "OpenAI"],
-    "url": "https://github.com/Johanx22x/faq-agent"
+    "title": "HTTP server from scratch in Go",
+    "summary": "Lightweight HTTP server with middleware, routing, templating, static files, and graceful shutdown.",
+    "tech": ["Go", "net/http"],
+    "url": "https://github.com/Johanx22x/http-lite"
   },
   {
-    "title": "Network Zonal Cache (C)",
-    "summary": "HTTP microservice for zonal caching with libmicrohttpd, OpenSSL, libcurl, and Jansson; rich logging and clean C arch.",
-    "tech": ["C", "libmicrohttpd", "OpenSSL", "Jansson"],
-    "url": "https://github.com/Johanx22x/zonal-cache"
+    "title": "DNS Interceptor in C",
+    "summary": "A simple DNS interceptor that listens for DNS requests and responds with a custom IP address.",
+    "tech": ["C", "Networking"],
+    "url": "https://github.com/JKevin2713/2025-01-2021475925-IC7602/tree/P1/P1"
   }
 ]
-
