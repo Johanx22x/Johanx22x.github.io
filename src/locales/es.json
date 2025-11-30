@@ -1,0 +1,93 @@
+{
+  "profile": {
+    "name": "Johan Rodríguez",
+    "role": "Desarrollador de Software",
+    "tagline": "Explorando tecnología, aprendiendo y creando — siempre construyendo y descubriendo."
+  },
+  "hero": {
+    "greeting": "Hola, soy {{name}}."
+  },
+  "filters": {
+    "all": "Todo",
+    "work": "Trabajo",
+    "hobbies": "Pasatiempos",
+    "social": "Social"
+  },
+  "sections": {
+    "bio": "Biografía",
+    "featuredProjects": "Proyectos Destacados",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "languages": "Idiomas",
+    "contact": "Contacto",
+    "hobbies": "Pasatiempos"
+  },
+  "experience": {
+    "computerVision": {
+      "title": "Investigador en Visión por Computadora",
+      "bullets": [
+        "Desarrollé pipelines de procesamiento de imágenes con IA/ML para análisis visual.",
+        "Optimicé el rendimiento de modelos en un entorno de investigación multidisciplinaria."
+      ]
+    },
+    "mathTutor": {
+      "title": "Tutor de Matemáticas",
+      "bullets": [
+        "Impartí tutoría de precálculo y resolución de problemas con orientación personalizada.",
+        "Fortalecí la comunicación y la enseñanza apoyando los resultados de los estudiantes."
+      ]
+    }
+  },
+  "education": {
+    "bsc": {
+      "title": "Bachillerato en Ingeniería en Computación",
+      "period": "2022 – 2025",
+      "institution": "Instituto Tecnológico de Costa Rica"
+    }
+  },
+  "languages": {
+    "spanish": "Español",
+    "english": "Inglés",
+    "japanese": "Japonés",
+    "levels": {
+      "native": "Nativo",
+      "b2": "B2",
+      "n5": "Principiante (N5)"
+    }
+  },
+  "bio": {
+    "text": "Soy un desarrollador de software de 22 años. El perfeccionismo y la perseverancia moldean mi trabajo, mientras la curiosidad me impulsa a través del mundo de la tecnología y la innovación. Más allá del código, exploro el arte y el expresionismo a través de diferentes culturas, sumergiéndome en la animación y la narrativa visual. La mente humana me fascina, atrayéndome hacia la psicología y la filosofía. Me encanta tomar ideas y darles la vuelta completamente, viendo hacia dónde me lleva el pensamiento espontáneo."
+  },
+  "projects": {
+    "mobileApp": {
+      "title": "App Móvil Híbrida (Angular + Capacitor)",
+      "summary": "Aplicación móvil multiplataforma para Android e iOS con integraciones nativas e interfaz moderna."
+    },
+    "benchmark": {
+      "title": "Benchmark: Detección de Rostros con Modelos y Frameworks de Deep Learning",
+      "summary": "Un benchmark integral de modelos y frameworks de deep learning para tareas de detección de rostros."
+    },
+    "snakeAI": {
+      "title": "Juego Snake con IA Genética",
+      "summary": "Un juego Snake donde la serpiente es controlada por una red neuronal entrenada con un algoritmo genético."
+    }
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Correo",
+    "anilist": "AniList",
+    "letterboxd": "Letterboxd",
+    "backloggd": "Backloggd",
+    "steam": "Steam",
+    "hardcover": "Hardcover",
+    "youtube": "YouTube"
+  },
+  "theme": {
+    "dark": "Oscuro",
+    "light": "Claro"
+  },
+  "footer": {
+    "builtWith": "Construido con React, Tailwind y cariño."
+  }
+}

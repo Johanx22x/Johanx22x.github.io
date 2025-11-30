@@ -1,26 +1,25 @@
 [
   {
+    "title": "Hybrid Mobile App (Angular + Capacitor)",
+    "summary": "Cross-platform mobile application for Android and iOS with native integrations and modern UI.",
+    "tools": ["Angular", "Capacitor", "TypeScript"],
+    "skills": ["Mobile Development", "Cross-platform Development", "UI/UX Design"],
+    "featured": true
+  },
+  {
     "title": "Benchmark: Face Detection Using Deep Learning Models and Frameworks",
     "summary": "A comprehensive benchmark of deep learning models and frameworks for face detection tasks.",
-    "tech": ["Python", "Deep Learning", "Computer Vision"],
-    "url": "https://doi.org/10.1007/978-3-031-93103-1_11"
+    "tools": ["Python", "TensorFlow", "PyTorch"],
+    "skills": ["Computer Vision", "AI/ML", "Research", "Benchmarking"],
+    "url": "https://doi.org/10.1007/978-3-031-93103-1_11",
+    "featured": true
   },
   {
     "title": "Genetic AI Snake Game",
     "summary": "A Snake game where the snake is controlled by a neural network trained using a genetic algorithm.",
-    "tech": ["Python", "Pygame", "Neural Networks", "Genetic Algorithms"],
-    "url": "https://github.com/Johanx22x/snake-ai"
-  },
-  {
-    "title": "HTTP server from scratch in Go",
-    "summary": "Lightweight HTTP server with middleware, routing, templating, static files, and graceful shutdown.",
-    "tech": ["Go", "net/http"],
-    "url": "https://github.com/Johanx22x/http-lite"
-  },
-  {
-    "title": "DNS Interceptor in C",
-    "summary": "A simple DNS interceptor that listens for DNS requests and responds with a custom IP address.",
-    "tech": ["C", "Networking"],
-    "url": "https://github.com/JKevin2713/2025-01-2021475925-IC7602/tree/P1/P1"
+    "tools": ["Python", "Pygame", "NumPy"],
+    "skills": ["AI/ML", "Game Development", "Genetic Algorithms", "Neural Networks"],
+    "url": "https://github.com/Johanx22x/snake-ai",
+    "featured": true
   }
 ]

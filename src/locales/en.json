@@ -1,0 +1,93 @@
+{
+  "profile": {
+    "name": "Johan Rodríguez",
+    "role": "Software Developer",
+    "tagline": "Exploring technology, learning, and creativity — always building and discovering."
+  },
+  "hero": {
+    "greeting": "Hi, I'm {{name}}."
+  },
+  "filters": {
+    "all": "All",
+    "work": "Work",
+    "hobbies": "Hobbies",
+    "social": "Social"
+  },
+  "sections": {
+    "bio": "Bio",
+    "featuredProjects": "Featured Projects",
+    "experience": "Experience",
+    "education": "Education",
+    "languages": "Languages",
+    "contact": "Contact",
+    "hobbies": "Hobbies"
+  },
+  "experience": {
+    "computerVision": {
+      "title": "Computer Vision Researcher",
+      "bullets": [
+        "Developed image-processing pipelines with AI/ML to support visual analysis.",
+        "Optimized model performance in a multidisciplinary research setting."
+      ]
+    },
+    "mathTutor": {
+      "title": "Mathematics Tutor",
+      "bullets": [
+        "Delivered precalculus and problem-solving mentoring through tailored guidance.",
+        "Strengthened communication and instruction while supporting student outcomes."
+      ]
+    }
+  },
+  "education": {
+    "bsc": {
+      "title": "BSc in Computer Engineering",
+      "period": "2022 – 2025",
+      "institution": "Instituto Tecnológico de Costa Rica"
+    }
+  },
+  "languages": {
+    "spanish": "Spanish",
+    "english": "English",
+    "japanese": "Japanese",
+    "levels": {
+      "native": "Native",
+      "b2": "B2",
+      "n5": "Beginner (N5)"
+    }
+  },
+  "bio": {
+    "text": "I'm a 22-year-old software developer. Perfectionism and perseverance shape my work, while curiosity drives me through the world of technology and innovation. Beyond coding, I explore art and expressionism across different cultures, diving into animation and visual storytelling. The human mind fascinates me, pulling me toward psychology and philosophy. I love taking ideas and flipping them completely, seeing where spontaneous thinking takes me."
+  },
+  "projects": {
+    "mobileApp": {
+      "title": "Hybrid Mobile App (Angular + Capacitor)",
+      "summary": "Cross-platform mobile application for Android and iOS with native integrations and modern UI."
+    },
+    "benchmark": {
+      "title": "Benchmark: Face Detection Using Deep Learning Models and Frameworks",
+      "summary": "A comprehensive benchmark of deep learning models and frameworks for face detection tasks."
+    },
+    "snakeAI": {
+      "title": "Genetic AI Snake Game",
+      "summary": "A Snake game where the snake is controlled by a neural network trained using a genetic algorithm."
+    }
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "anilist": "AniList",
+    "letterboxd": "Letterboxd",
+    "backloggd": "Backloggd",
+    "steam": "Steam",
+    "hardcover": "Hardcover",
+    "youtube": "YouTube"
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "footer": {
+    "builtWith": "Built with React, Tailwind, and care."
+  }
+}

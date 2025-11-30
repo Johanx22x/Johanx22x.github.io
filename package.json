@@ -14,9 +14,11 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.12",
+    "i18next": "^25.6.3",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-i18next": "^16.3.5",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {

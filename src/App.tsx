@@ -1,15 +1,13 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Github, Linkedin, Mail, PlayCircle, Film, Gamepad2, BookOpen, Link as LinkIcon,
-  ExternalLink, Code2, Briefcase, Sparkles, GraduationCap,
+  ExternalLink, Code2, Briefcase, Sparkles, GraduationCap, Languages, User, Clapperboard, Joystick,
 } from "lucide-react";
 
 const PROFILE = {
   name: "Johan Rodríguez",
-  role: "Computer Engineering Student",
-  tagline: "Exploring technology, learning, and creativity — always building and discovering.",
   email: "johanrodsa2210@gmail.com",
-  resumeUrl: "/Johan-CV.pdf",
 };
 
 export type LinkGroup = "work" | "hobby" | "social";
@@ -26,16 +24,23 @@ const LINKS: LinkItem[] = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/johan-rodr%C3%ADguez-5a49a223a/", group: "work", icon: Linkedin },
   { label: "Email", href: "mailto:" + PROFILE.email, group: "work", icon: Mail },
 
-  { label: "AniList", href: "https://anilist.co/user/Johanx22x/", group: "hobby", icon: Film, note: "Anime list" },
-  { label: "Letterboxd", href: "https://letterboxd.com/Johanx22x/", group: "hobby", icon: Film },
+  { label: "AniList", href: "https://anilist.co/user/Johanx22x/", group: "hobby", icon: Film},
+  { label: "Letterboxd", href: "https://letterboxd.com/Johanx22x/", group: "hobby", icon: Clapperboard },
   { label: "Backloggd", href: "https://backloggd.com/u/Johanx22x/", group: "hobby", icon: Gamepad2 },
+  { label: "Steam", href: "https://steamcommunity.com/id/johanx22x/", group: "hobby", icon: Joystick },
   { label: "Hardcover", href: "https://hardcover.app/@johanx22x", group: "hobby", icon: BookOpen },
 
   { label: "YouTube", href: "https://www.youtube.com/@johanx22x", group: "social", icon: PlayCircle },
-  { label: "Discord", href: "https://discord.com/users/johanx22x", group: "social", icon: LinkIcon },
 ];
 
-export type Project = { title: string; summary: string; tech: string[]; url?: string };
+export type Project = { 
+  title: string; 
+  summary: string; 
+  tools: string[];
+  skills?: string[];
+  url?: string;
+  featured?: boolean;
+};
 
 const cx = (...a: Array<string | false | null | undefined>) => a.filter(Boolean).join(" ");
 
@@ -65,6 +70,7 @@ function useTheme() {
 }
 
 export default function App() {
+  const { t, i18n } = useTranslation();
   const { isDark, setIsDark } = useTheme();
 
   const [filter, setFilter] = useState<"all" | LinkGroup>("all");
@@ -73,11 +79,18 @@ export default function App() {
     [filter]
   );
 
+  const workLinks = useMemo(() => LINKS.filter((l) => l.group === "work"), []);
+  const hobbyLinks = useMemo(() => LINKS.filter((l) => l.group === "hobby" || l.group === "social"), []);
+
   const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
     fetch("/projects.json").then(r => r.json()).then(setProjects).catch(() => setProjects([]));
   }, []);
-  const featured = projects.slice(0, 4);
+  const featured = projects.filter(p => p.featured !== false).slice(0, 3);
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <div className="relative min-h-screen text-slate-800 antialiased dark:text-slate-100">
@@ -85,31 +98,41 @@ export default function App() {
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-16 pt-8 sm:px-6 lg:px-8">
         {/* Header */}
-        <header className="mb-10 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-2xl bg-white/70 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-transform hover:scale-[1.02] active:scale-[0.98] dark:bg-slate-900/60 dark:ring-white/10">
-                <img src="/avatar.png" alt="Avatar" className="h-8 w-8 rounded-xl object-cover" />
+        <header className="mb-10 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/60 px-3 py-2 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-slate-900/50">
+            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/70 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-transform hover:scale-[1.02] active:scale-[0.98] dark:bg-slate-900/60 dark:ring-white/10">
+                <img src="/avatar.png" alt="Avatar" className="h-8 w-8 rounded-lg object-cover" />
             </div>
             <div>
-              <h1 className="text-lg font-semibold tracking-tight">@johanx22x</h1>
-              <p className="text-xs/5 text-slate-600 dark:text-slate-400">{PROFILE.role}</p>
+              <h1 className="text-sm font-semibold tracking-tight">{PROFILE.name}</h1>
+              <p className="text-xs text-slate-600 dark:text-slate-400">
+                @johanx22x · {t('profile.role')}
+              </p>
             </div>
           </div>
 
           <nav className="flex items-center gap-2">
-            <a
-              target="_blank"
-              href={PROFILE.resumeUrl}
-              className="group inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/70 px-3 py-2 text-xs font-medium shadow-sm backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40 active:translate-y-0 dark:border-white/10 dark:bg-slate-900/60 dark:hover:bg-slate-900/80"
-            >
-              <span>View Resume</span>
-              <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
-            </a>
+            <div className="flex items-center gap-1 rounded-2xl border border-white/20 bg-white/70 px-2 py-1.5 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-slate-900/60">
+              {(['en', 'es', 'ja'] as const).map((lng) => (
+                <button
+                  key={lng}
+                  onClick={() => changeLanguage(lng)}
+                  className={cx(
+                    "rounded-lg px-2.5 py-1 text-xs font-medium transition",
+                    i18n.language === lng
+                      ? "bg-white/90 text-slate-900 shadow-sm dark:bg-slate-800 dark:text-slate-100"
+                      : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+                  )}
+                >
+                  {lng.toUpperCase()}
+                </button>
+              ))}
+            </div>
             <button
               onClick={() => setIsDark(!isDark)}
               className="rounded-2xl border border-white/20 bg-white/60 px-3 py-2 text-xs font-medium shadow-sm backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40 active:translate-y-0 dark:border-white/10 dark:bg-slate-900/60 dark:hover:bg-slate-900/80"
             >
-              {isDark ? "Light" : "Dark"}
+              {isDark ? t('theme.light') : t('theme.dark')}
             </button>
           </nav>
         </header>
@@ -118,68 +141,83 @@ export default function App() {
         <section className="relative mb-12">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-              Hi, I'm {PROFILE.name}.
+              {t('hero.greeting', { name: PROFILE.name })}
             </h2>
             <p className="mt-3 text-pretty text-sm text-slate-600 dark:text-slate-400 sm:text-base">
-              {PROFILE.tagline}
+              {t('profile.tagline')}
             </p>
-
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-              {(
-                [
-                  { key: "all", label: "All" },
-                  { key: "work", label: "Work" },
-                  { key: "hobby", label: "Hobbies" },
-                  { key: "social", label: "Social" },
-                ] as const
-              ).map(({ key, label }) => (
-                <button
-                  key={key}
-                  onClick={() => setFilter(key)}
-                  className={cx(
-                    "rounded-2xl border px-3 py-1.5 text-xs font-medium shadow-sm backdrop-blur-md transition ring-0 hover:-translate-y-0.5 hover:shadow md:active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40",
-                    filter === key
-                      ? "border-pink-400/50 bg-white/80 dark:bg-slate-900/70"
-                      : "border-white/20 bg-white/50 hover:bg-white/80 dark:border-white/10 dark:bg-slate-900/40 dark:hover:bg-slate-900/70"
-                  )}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
           </div>
         </section>
 
+        {/* Bio Section */}
+        <GlassCard className="mb-6" icon={User} title={t('sections.bio')}>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            {t('bio.text')}
+          </p>
+        </GlassCard>
+
         {/* Grid principal */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {/* Featured Projects — 2/3 */}
-          <GlassCard className="lg:col-span-2" icon={Briefcase} title="Featured Projects">
+          {/* Left column — Experience, Education, Languages */}
+          <div className="space-y-6 lg:col-span-1">
+            <GlassCard icon={Sparkles} title={t('sections.experience')}>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <h4 className="font-medium">{t('experience.computerVision.title')}</h4>
+                  <ul className="ml-4 list-disc text-slate-600 dark:text-slate-400">
+                    {(t('experience.computerVision.bullets', { returnObjects: true }) as string[]).map((bullet: string, i: number) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
+                  </ul>
+                </li>
+                <li>
+                  <h4 className="font-medium">{t('experience.mathTutor.title')}</h4>
+                  <ul className="ml-4 list-disc text-slate-600 dark:text-slate-400">
+                    {(t('experience.mathTutor.bullets', { returnObjects: true }) as string[]).map((bullet: string, i: number) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
+                  </ul>
+                </li>
+              </ul>
+            </GlassCard>
+
+            <GlassCard icon={GraduationCap} title={t('sections.education')}>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <h4 className="font-medium">{t('education.bsc.title')} ({t('education.bsc.period')})</h4>
+                  <p className="text-slate-600 dark:text-slate-400">{t('education.bsc.institution')}</p>
+                </li>
+              </ul>
+            </GlassCard>
+
+            <GlassCard icon={Languages} title={t('sections.languages')}>
+              <ul className="space-y-2 text-sm">
+                <li className="flex justify-between">
+                  <span className="font-medium">{t('languages.spanish')}</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('languages.levels.native')}</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="font-medium">{t('languages.english')}</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('languages.levels.b2')}</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="font-medium">{t('languages.japanese')}</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('languages.levels.n5')}</span>
+                </li>
+              </ul>
+            </GlassCard>
+          </div>
+
+          {/* Right column — Featured Projects in single column */}
+          <GlassCard className="lg:col-span-2" icon={Briefcase} title={t('sections.featuredProjects')}>
             {featured.length ? (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {featured.map((p) => (
-                  <a
-                    key={p.title}
-                    target="_blank"
-                    href={p.url}
-                    className="rounded-2xl border border-white/20 bg-white/75 p-5 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40 active:translate-y-0 dark:border-white/10 dark:bg-slate-900/60 dark:ring-white/10"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <h3 className="text-base font-semibold tracking-tight">{p.title}</h3>
-                      <Code2 className="h-4 w-4 shrink-0 opacity-60" />
-                    </div>
-                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{p.summary}</p>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {p.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="rounded-full border border-white/20 bg-white/60 px-2 py-0.5 text-[10px] font-medium shadow-sm dark:border-white/10 dark:bg-slate-900/60"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </a>
-                ))}
+              <div className="grid grid-cols-1 gap-4">
+                {featured.map((p, idx) => {
+                  const projectKeys = ['mobileApp', 'benchmark', 'snakeAI'];
+                  return (
+                    <ProjectCard key={p.title} project={p} projectKey={projectKeys[idx]} />
+                  );
+                })}
               </div>
             ) : (
               <p className="text-sm text-slate-500">
@@ -187,50 +225,28 @@ export default function App() {
               </p>
             )}
           </GlassCard>
-
-          {/* Right column — Experience + Education */}
-          <div className="space-y-6">
-            <GlassCard icon={Sparkles} title="Experience">
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <h4 className="font-medium">Computer Vision Researcher</h4>
-                  <ul className="ml-4 list-disc text-slate-600 dark:text-slate-400">
-                    <li>Developed image-processing pipelines with AI/ML to support visual analysis.</li>
-                    <li>Optimized model performance in a multidisciplinary research setting.</li>
-                  </ul>
-                </li>
-                <li>
-                  <h4 className="font-medium">Mathematics Tutor</h4>
-                  <ul className="ml-4 list-disc text-slate-600 dark:text-slate-400">
-                    <li>Delivered precalculus and problem-solving mentoring through tailored guidance.</li>
-                    <li>Strengthened communication and instruction while supporting student outcomes.</li>
-                  </ul>
-                </li>
-              </ul>
-            </GlassCard>
-
-            <GlassCard icon={GraduationCap} title="Education">
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <h4 className="font-medium">BSc in Computer Engineering (2022 – Present)</h4>
-                  <p className="text-slate-600 dark:text-slate-400">Instituto Tecnológico de Costa Rica</p>
-                </li>
-              </ul>
-            </GlassCard>
-          </div>
         </div>
 
-        {/* Link Hub */}
-        <GlassCard className="mt-6" icon={LinkIcon} title="Link Hub">
+        {/* Contact */}
+        <GlassCard className="mt-6" icon={Mail} title={t('sections.contact')}>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredLinks.map((item) => (
+            {workLinks.map((item) => (
+              <LinkButton key={item.label} item={item} />
+            ))}
+          </div>
+        </GlassCard>
+
+        {/* Hobbies */}
+        <GlassCard className="mt-6" icon={LinkIcon} title={t('sections.hobbies')}>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {hobbyLinks.map((item) => (
               <LinkButton key={item.label} item={item} />
             ))}
           </div>
         </GlassCard>
 
         <footer className="mt-12 text-center text-xs text-slate-600 dark:text-slate-400">
-          <p>Built with React, Tailwind, and care.</p>
+          <p>{t('footer.builtWith')}</p>
         </footer>
       </div>
     </div>
@@ -238,6 +254,74 @@ export default function App() {
 }
 
 /* ---- UI blocks ---- */
+function ProjectCard({ project, large = false, projectKey }: { project: Project; large?: boolean; projectKey?: string }) {
+  const { t } = useTranslation();
+  
+  const title = projectKey ? t(`projects.${projectKey}.title`) : project.title;
+  const summary = projectKey ? t(`projects.${projectKey}.summary`) : project.summary;
+  
+  const className = cx(
+    "group rounded-2xl border border-white/20 bg-white/75 p-5 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40 active:translate-y-0 dark:border-white/10 dark:bg-slate-900/60 dark:ring-white/10",
+    large && "sm:p-6"
+  );
+  
+  const content = (
+    <>
+      <div className="flex items-start justify-between gap-3">
+        <h3 className={cx("font-semibold tracking-tight", large ? "text-lg" : "text-base")}>
+          {title}
+        </h3>
+        <Code2 className={cx("shrink-0 opacity-60 transition group-hover:opacity-100", large ? "h-5 w-5" : "h-4 w-4")} />
+      </div>
+      <p className={cx("mt-2 text-slate-600 dark:text-slate-400", large ? "text-base" : "text-sm")}>
+        {summary}
+      </p>
+      
+      {/* Tools */}
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        {project.tools.map((t) => (
+          <span
+            key={t}
+            className="rounded-full border border-blue-300/30 bg-blue-50/60 px-2 py-0.5 text-[10px] font-medium text-blue-700 dark:border-blue-400/20 dark:bg-blue-900/30 dark:text-blue-300"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+      
+      {/* Skills */}
+      {project.skills && project.skills.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {project.skills.map((s) => (
+            <span
+              key={s}
+              className="rounded-full border border-pink-300/30 bg-pink-50/60 px-2 py-0.5 text-[10px] font-medium text-pink-700 dark:border-pink-400/20 dark:bg-pink-900/30 dark:text-pink-300"
+            >
+              {s}
+            </span>
+          ))}
+        </div>
+      )}
+    </>
+  );
+  
+  // If project has no URL, render as div; otherwise render as link
+  if (!project.url) {
+    return <div className={className}>{content}</div>;
+  }
+  
+  return (
+    <a
+      target="_blank"
+      href={project.url}
+      rel="noopener noreferrer"
+      className={className}
+    >
+      {content}
+    </a>
+  );
+}
+
 function GlassCard({
   title, icon: Icon, className, children,
 }: { title: string; icon?: React.ComponentType<{ className?: string }>; className?: string; children: React.ReactNode; }) {

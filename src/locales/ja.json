@@ -1,0 +1,93 @@
+{
+  "profile": {
+    "name": "ジョアン・ロドリゲス",
+    "role": "ソフトウェア開発者",
+    "tagline": "テクノロジーを探求し、学び、創造する — 常に構築と発見をしています。"
+  },
+  "hero": {
+    "greeting": "こんにちは、{{name}}です。"
+  },
+  "filters": {
+    "all": "すべて",
+    "work": "仕事",
+    "hobbies": "趣味",
+    "social": "ソーシャル"
+  },
+  "sections": {
+    "bio": "プロフィール",
+    "featuredProjects": "注目のプロジェクト",
+    "experience": "経験",
+    "education": "学歴",
+    "languages": "言語",
+    "contact": "連絡先",
+    "hobbies": "趣味"
+  },
+  "experience": {
+    "computerVision": {
+      "title": "コンピュータビジョン研究者",
+      "bullets": [
+        "AI/MLを用いた画像処理パイプラインを開発し、視覚分析をサポート。",
+        "多分野の研究環境でモデルのパフォーマンスを最適化。"
+      ]
+    },
+    "mathTutor": {
+      "title": "数学の家庭教師",
+      "bullets": [
+        "カスタマイズされたガイダンスを通じて微積分と問題解決の指導を提供。",
+        "学生の成果をサポートしながらコミュニケーションと指導を強化。"
+      ]
+    }
+  },
+  "education": {
+    "bsc": {
+      "title": "コンピュータ工学学士",
+      "period": "2022 – 2025",
+      "institution": "コスタリカ工科大学"
+    }
+  },
+  "languages": {
+    "spanish": "スペイン語",
+    "english": "英語",
+    "japanese": "日本語",
+    "levels": {
+      "native": "ネイティブ",
+      "b2": "B2",
+      "n5": "初級（N5）"
+    }
+  },
+  "bio": {
+    "text": "22歳のソフトウェア開発者です。完璧主義と粘り強さが仕事を形作り、好奇心が技術と革新の世界を通して私を駆り立てます。コーディング以外では、異なる文化を通じて芸術と表現主義を探求し、アニメーションと視覚的なストーリーテリングに没頭しています。人間の心は私を魅了し、心理学と哲学へと引き寄せます。アイデアを完全にひっくり返して、自発的な思考がどこへ導くかを見るのが好きです。"
+  },
+  "projects": {
+    "mobileApp": {
+      "title": "ハイブリッドモバイルアプリ（Angular + Capacitor）",
+      "summary": "ネイティブ統合と最新UIを備えたAndroidとiOS用のクロスプラットフォームモバイルアプリ。"
+    },
+    "benchmark": {
+      "title": "ベンチマーク：ディープラーニングモデルとフレームワークを使用した顔検出",
+      "summary": "顔検出タスクのためのディープラーニングモデルとフレームワークの包括的なベンチマーク。"
+    },
+    "snakeAI": {
+      "title": "遺伝的AIスネークゲーム",
+      "summary": "遺伝的アルゴリズムで訓練されたニューラルネットワークによって制御されるスネークゲーム。"
+    }
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "メール",
+    "anilist": "AniList",
+    "letterboxd": "Letterboxd",
+    "backloggd": "Backloggd",
+    "steam": "Steam",
+    "hardcover": "Hardcover",
+    "youtube": "YouTube"
+  },
+  "theme": {
+    "dark": "ダーク",
+    "light": "ライト"
+  },
+  "footer": {
+    "builtWith": "React、Tailwind、そして愛情を込めて構築。"
+  }
+}
