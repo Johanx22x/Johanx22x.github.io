@@ -118,17 +118,21 @@ export default function App() {
 
         {/* Hero */}
         <section className="relative mb-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-4 inline-block rounded-full ring-2 ring-white/30 shadow-lg dark:ring-white/10">
-              <img src="/avatar.png" alt="Avatar" className="h-24 w-24 rounded-full object-cover" />
+          <div className="mx-auto max-w-3xl flex flex-col items-center">
+            <div className="flex items-center gap-5">
+              <div className="shrink-0 rounded-full ring-2 ring-white/30 shadow-lg dark:ring-white/10">
+                <img src="/avatar.png" alt="Avatar" className="h-24 w-24 rounded-full object-cover" />
+              </div>
+              <div>
+                <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+                  {PROFILE.name}
+                </h2>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                  @johanx22x · {t('profile.role')}
+                </p>
+              </div>
             </div>
-            <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-              {PROFILE.name}
-            </h2>
-            <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-              @johanx22x · {t('profile.role')}
-            </p>
-            <p className="mt-3 text-pretty text-sm text-slate-600 dark:text-slate-400 sm:text-base">
+            <p className="mt-4 text-center text-pretty text-sm text-slate-600 dark:text-slate-400 sm:text-base">
               {t('profile.tagline')}
             </p>
           </div>
