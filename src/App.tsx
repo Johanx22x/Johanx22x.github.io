@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
-  Github, Linkedin, Mail, PlayCircle, Film, Gamepad2, BookOpen, Link as LinkIcon,
-  ExternalLink, Code2, Briefcase, Sparkles, GraduationCap, Languages, User, Clapperboard, Joystick,
+  Github, Mail,
+  ExternalLink, Code2, Briefcase, Sparkles, GraduationCap, Languages, User,
 } from "lucide-react";
 
 const PROFILE = {
@@ -21,16 +21,7 @@ export type LinkItem = {
 
 const LINKS: LinkItem[] = [
   { label: "GitHub", href: "https://github.com/Johanx22x", group: "work", icon: Github },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/johan-rodr%C3%ADguez-5a49a223a/", group: "work", icon: Linkedin },
   { label: "Email", href: "mailto:" + PROFILE.email, group: "work", icon: Mail },
-
-  { label: "AniList", href: "https://anilist.co/user/Johanx22x/", group: "hobby", icon: Film},
-  { label: "Letterboxd", href: "https://letterboxd.com/Johanx22x/", group: "hobby", icon: Clapperboard },
-  { label: "Backloggd", href: "https://backloggd.com/u/Johanx22x/", group: "hobby", icon: Gamepad2 },
-  { label: "Steam", href: "https://steamcommunity.com/id/johanx22x/", group: "hobby", icon: Joystick },
-  { label: "Hardcover", href: "https://hardcover.app/@johanx22x", group: "hobby", icon: BookOpen },
-
-  { label: "YouTube", href: "https://www.youtube.com/@johanx22x", group: "social", icon: PlayCircle },
 ];
 
 export type Project = { 
@@ -80,7 +71,6 @@ export default function App() {
   );
 
   const workLinks = useMemo(() => LINKS.filter((l) => l.group === "work"), []);
-  const hobbyLinks = useMemo(() => LINKS.filter((l) => l.group === "hobby" || l.group === "social"), []);
 
   const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => {
@@ -98,12 +88,12 @@ export default function App() {
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-16 pt-8 sm:px-6 lg:px-8">
         {/* Header */}
-        <header className="mb-10 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/60 px-3 py-2 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-slate-900/50">
-            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/70 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-transform hover:scale-[1.02] active:scale-[0.98] dark:bg-slate-900/60 dark:ring-white/10">
-                <img src="/avatar.png" alt="Avatar" className="h-8 w-8 rounded-lg object-cover" />
+        <header className="mb-10 flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-3 rounded-2xl border border-white/20 bg-white/60 px-6 py-4 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-slate-900/50">
+            <div className="grid h-16 w-16 shrink-0 place-items-center rounded-xl bg-white/70 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-transform hover:scale-[1.02] active:scale-[0.98] dark:bg-slate-900/60 dark:ring-white/10">
+                <img src="/avatar.png" alt="Avatar" className="h-14 w-14 rounded-lg object-cover" />
             </div>
-            <div>
+            <div className="text-center">
               <h1 className="text-sm font-semibold tracking-tight">{PROFILE.name}</h1>
               <p className="text-xs text-slate-600 dark:text-slate-400">
                 @johanx22x · {t('profile.role')}
@@ -231,15 +221,6 @@ export default function App() {
         <GlassCard className="mt-6" icon={Mail} title={t('sections.contact')}>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {workLinks.map((item) => (
-              <LinkButton key={item.label} item={item} />
-            ))}
-          </div>
-        </GlassCard>
-
-        {/* Hobbies */}
-        <GlassCard className="mt-6" icon={LinkIcon} title={t('sections.hobbies')}>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {hobbyLinks.map((item) => (
               <LinkButton key={item.label} item={item} />
             ))}
           </div>
