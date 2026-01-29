@@ -1,0 +1,18 @@
+{
+  "name": "Johan Rodríguez - Software Developer",
+  "short_name": "Johan R.",
+  "description": "Software developer exploring AI/ML, mobile development, and visual culture.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

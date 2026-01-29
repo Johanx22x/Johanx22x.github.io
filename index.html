@@ -3,29 +3,65 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <!-- Primary Meta Tags -->
   <title>Johan Rodríguez - Software Developer</title>
   <meta name="title" content="Johan Rodríguez - Software Developer" />
   <meta name="description" content="22-year-old software developer exploring technology, art, and philosophy. Passionate about AI/ML, mobile development, and visual culture." />
   <meta name="author" content="Johan Rodríguez" />
-  
+  <link rel="canonical" href="https://johanx22x.github.io/" />
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a0f1a" media="(prefers-color-scheme: dark)" />
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://johanx22x.github.io/" />
   <meta property="og:title" content="Johan Rodríguez - Software Developer" />
   <meta property="og:description" content="22-year-old software developer exploring technology, art, and philosophy. Passionate about AI/ML, mobile development, and visual culture." />
   <meta property="og:image" content="https://johanx22x.github.io/avatar.png" />
-  
+  <meta property="og:image:alt" content="Johan Rodríguez - Software Developer" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://johanx22x.github.io/" />
   <meta property="twitter:title" content="Johan Rodríguez - Software Developer" />
   <meta property="twitter:description" content="22-year-old software developer exploring technology, art, and philosophy. Passionate about AI/ML, mobile development, and visual culture." />
   <meta property="twitter:image" content="https://johanx22x.github.io/avatar.png" />
-  
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Johan Rodríguez",
+    "url": "https://johanx22x.github.io",
+    "email": "johanrodsa2210@gmail.com",
+    "jobTitle": "Software Developer",
+    "image": "https://johanx22x.github.io/avatar.png",
+    "sameAs": [
+      "https://github.com/Johanx22x"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Instituto Tecnológico de Costa Rica"
+    },
+    "knowsAbout": ["AI/ML", "Mobile Development", "Computer Vision", "React", "Python"]
+  }
+  </script>
+
   <script>
     (function () {
       try {
@@ -40,6 +76,7 @@
 </head>
 
 <body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:shadow-lg dark:focus:bg-slate-800 dark:focus:text-white">Skip to main content</a>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

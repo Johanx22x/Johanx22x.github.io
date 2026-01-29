@@ -86,7 +86,7 @@ export default function App() {
     <div className="relative min-h-screen text-slate-800 antialiased dark:text-slate-100">
       <BackgroundAesthetic />
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <div id="main" className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-16 pt-8 sm:px-6 lg:px-8">
         {/* Header */}
         <header className="mb-10 flex items-center justify-between gap-4">
           <div />
@@ -96,6 +96,8 @@ export default function App() {
                 <button
                   key={lng}
                   onClick={() => changeLanguage(lng)}
+                  aria-label={`Switch language to ${lng.toUpperCase()}`}
+                  aria-current={i18n.language === lng ? "true" : undefined}
                   className={cx(
                     "rounded-lg px-2.5 py-1 text-xs font-medium transition",
                     i18n.language === lng
@@ -109,6 +111,7 @@ export default function App() {
             </div>
             <button
               onClick={() => setIsDark(!isDark)}
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
               className="rounded-2xl border border-white/20 bg-white/60 px-3 py-2 text-xs font-medium shadow-sm backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/40 active:translate-y-0 dark:border-white/10 dark:bg-slate-900/60 dark:hover:bg-slate-900/80"
             >
               {isDark ? t('theme.light') : t('theme.dark')}
@@ -121,7 +124,7 @@ export default function App() {
           <div className="mx-auto max-w-3xl flex flex-col items-center">
             <div className="flex items-center gap-5">
               <div className="shrink-0 rounded-full ring-2 ring-white/30 shadow-lg dark:ring-white/10">
-                <img src="/avatar.png" alt="Avatar" className="h-24 w-24 rounded-full object-cover" />
+                <img src="/avatar.png" alt="Johan Rodríguez - Software Developer" width={96} height={96} className="h-24 w-24 rounded-full object-cover" />
               </div>
               <div>
                 <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
