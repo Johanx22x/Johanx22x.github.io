@@ -88,19 +88,8 @@ export default function App() {
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 pb-16 pt-8 sm:px-6 lg:px-8">
         {/* Header */}
-        <header className="mb-10 flex flex-col items-center gap-4">
-          <div className="flex flex-col items-center gap-3 rounded-2xl border border-white/20 bg-white/60 px-6 py-4 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-slate-900/50">
-            <div className="grid h-16 w-16 shrink-0 place-items-center rounded-xl bg-white/70 shadow-sm ring-1 ring-black/5 backdrop-blur-md transition-transform hover:scale-[1.02] active:scale-[0.98] dark:bg-slate-900/60 dark:ring-white/10">
-                <img src="/avatar.png" alt="Avatar" className="h-14 w-14 rounded-lg object-cover" />
-            </div>
-            <div className="text-center">
-              <h1 className="text-sm font-semibold tracking-tight">{PROFILE.name}</h1>
-              <p className="text-xs text-slate-600 dark:text-slate-400">
-                @johanx22x · {t('profile.role')}
-              </p>
-            </div>
-          </div>
-
+        <header className="mb-10 flex items-center justify-between gap-4">
+          <div />
           <nav className="flex items-center gap-2">
             <div className="flex items-center gap-1 rounded-2xl border border-white/20 bg-white/70 px-2 py-1.5 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-slate-900/60">
               {(['en', 'es', 'ja'] as const).map((lng) => (
@@ -130,9 +119,15 @@ export default function App() {
         {/* Hero */}
         <section className="relative mb-12">
           <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-4 inline-block rounded-full ring-2 ring-white/30 shadow-lg dark:ring-white/10">
+              <img src="/avatar.png" alt="Avatar" className="h-24 w-24 rounded-full object-cover" />
+            </div>
             <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-              {t('hero.greeting', { name: PROFILE.name })}
+              {PROFILE.name}
             </h2>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+              @johanx22x · {t('profile.role')}
+            </p>
             <p className="mt-3 text-pretty text-sm text-slate-600 dark:text-slate-400 sm:text-base">
               {t('profile.tagline')}
             </p>
